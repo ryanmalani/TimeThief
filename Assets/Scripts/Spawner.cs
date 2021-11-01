@@ -20,10 +20,11 @@ public class Spawner : MonoBehaviour
   {
 
       int randomObjectIndex = Random.Range(0,myObjects.Length); // picking a random index from the array of gameObjects
+      int randomPosition = Random.Range(0, positions.Length); // picking a random position to spawn the object
 
       if(timer>beat)
       {
-        GameObject randomObject = Instantiate(myObjects[randomObjectIndex], positions[Random.Range(0,positions.Length)]); // instantiating the random object at one of the 3 positions
+        GameObject randomObject = Instantiate(myObjects[randomObjectIndex], positions[randomPosition]); // instantiating the random object at one of the 3 positions
         randomObject.transform.localPosition = Vector3.zero;
         randomObject.transform.Translate(transform.forward);
         timer -= beat;
